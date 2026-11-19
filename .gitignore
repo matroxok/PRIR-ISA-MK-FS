@@ -1,0 +1,7 @@
+# Python virtual environments
+venv/
+.venv/
+env/
+
+# Local venv used in this repo
+PRiR_LAB4/venv/
