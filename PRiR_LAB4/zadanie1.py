@@ -2,6 +2,7 @@
 import random
 from multiprocessing import Pool
 import math
+import time
 
 # P_m || C_max
 generator = random.Random(123)
@@ -9,7 +10,7 @@ ZADANIA = [generator.randint(1, 100) for _ in range(60)]
 
 MASZYNY = 8
 POPULACJA = 100
-POKOLENIA = 200
+POKOLENIA = 500
 
 
 def ocen(osobnik):
@@ -50,6 +51,7 @@ def mutuj(osobnik):
 
 def main():
     random.seed(43)
+    start = time.perf_counter()
 
     populacja = [losuj_osobnika() for _ in range(POPULACJA)]
 
@@ -103,6 +105,7 @@ def main():
 
     print("Dolna granica:", minimum)
     print("Wynik algorytmu:", ocen(najlepszy))
+    print(f"Czas wykonania: {time.perf_counter() - start:.4f} s")
 
 if __name__ == "__main__":
     main()
